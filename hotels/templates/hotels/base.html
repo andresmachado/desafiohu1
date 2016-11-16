@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Hotel Urbano</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'hotels/css/main.css' %}">
+    <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="search-box">
+            <div class="header">
+                <h1><i class="fa fa-bed" aria-hidden="true"></i> Hotéis</h1>
+            </div>
+            <div class="content">
+                <p class="subtitle">+ 170.000 hotéis, pousadas e resorts no mundo todo.</p>
+
+                <form action="">
+                <div class="location">
+                    <div class="label">
+                        <label>Quer ficar onde?</label>
+                    </div>
+                    <div class="location-group">
+                        <i class="addon fa fa-map-marker" aria-hidden="true"></i>
+                        <input class="input" id="location" type="text" placeholder="cidade ou hotel" />    
+                    </div>
+                </div>
+                <div class="dates">
+                    <div class="label">
+                        <label>Quando? <span>(Entrada e Saída)</span></label>
+                    </div>
+                    <div class="entry">
+                        <i class="addon fa fa-calendar" aria-hidden="true"></i>
+                        <input class="input" name="checkin" id="entry-date" type="text" placeholder="entrada" />    
+                    </div>
+                    <div class="exit">
+                        <i class="addon fa fa-calendar" aria-hidden="true"></i>
+                        <input class="input" name="checkout" id="exit-date" type="text" placeholder="saída" />    
+                    </div>
+                    <div class="no-dates">
+                        <input name="no-dates" id="no-dates" type="checkbox"> <label for="no-dates">Ainda não defini as datas</label>
+                    </div>
+                </div>
+                <div class="search-button">
+                    <p><button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button></p>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
