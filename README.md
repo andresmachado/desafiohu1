@@ -20,3 +20,8 @@ Esses comandos tem que ser o suficiente para configurar meu mac os x OU ubuntu e
 
 ***Artefatos***
 * Imagens e database de hoteis e disponibilidades estão na pasta artefatos
+
+
+***Informacoes sobre o repositório***
+* Login e senha do admin
+* Login: admin | Senha: adminadmin
