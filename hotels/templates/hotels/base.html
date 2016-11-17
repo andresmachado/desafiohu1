@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <title>Desafio Hotel Urbano</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" href="{% static 'hotels/css/main.css' %}">
     <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{% static 'hotels/js/datepicker-pt-BR.js' %}"></script>
 </head>
 <body>
     <div class="main">
@@ -55,4 +57,35 @@
         </div>
     </div>
 </body>
+<script>
+    $(function() {
+        $("#location").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: "{% url 'list_hotels' %}",
+                    data: request,
+                    success: function(data) {
+                        var ParsedObject = $.parseJSON(data);
+                        response($.map(ParsedObject, function(item){
+                            return {
+                                label: item.name + ' - ' + item.city,
+                                value: item.name
+                            };
+                        }))
+                    }
+                });
+            }
+        });
+
+        $("#entry-date, #exit-date").datepicker($.datepicker.regional["pt-BR"]);
+        $("#no-dates").on('change', function(){
+            if ($(this).is(':checked')) {
+                $("#entry-date").val("");
+                $("#exit-date").val("");
+            } else {
+                return false
+            }
+        })
+    })
+</script>
 </html>

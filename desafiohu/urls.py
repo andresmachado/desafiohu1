@@ -19,6 +19,7 @@ from django.contrib import admin
 from hotels import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^hotels/$', views.list_hotels, name='list_hotels'),
     url(r'^admin/', admin.site.urls),
 ]

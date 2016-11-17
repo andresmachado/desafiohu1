@@ -125,6 +125,7 @@
 .exit input {
     box-sizing: border-box;
     width: 100%;
+    color: #D8DDE1;
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     border: 1px solid #E5E5E5;
