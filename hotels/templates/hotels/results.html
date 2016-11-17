@@ -1,0 +1,27 @@
+{% extends 'hotels/base.html' %}
+
+{% block content %}
+
+<div class="results">
+    {% if checkin %}
+        <p>Disponibilidade entre os dias {{ checkin }} e {% if checkout %}{{ checkout }}{% else %} sem data de saída {% endif %}</p>
+    {% else %}
+        <p>Sem datas definidas</p>
+    {% endif %}
+    {% for hotel in hotels %}
+        <br>
+        <p>{{ hotel.name }} - {{ hotel.city }}</p>
+        <br>
+        <p>Datas disponiveis no periodo selecionado</p>
+        {% for disp in hotel.disponibility.all %}
+            <p> Dia: {{ disp.date }} - Noites diponiveis: {{ disp.min_nights }} </p>
+        {% endfor %}
+
+    {% empty %}
+        Nenhum resultado encontrado.
+    {% endfor %}
+    <br>
+    <a href="{% url 'index' %}">Voltar</a>
+</div>
+
+{% endblock content %}

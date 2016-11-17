@@ -20,6 +20,7 @@ from hotels import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^hotels/$', views.list_hotels, name='list_hotels'),
+    url(r'^hotels/$', views.list_hotels_json, name='list_hotels'),
+    url(r'^resultado/$', views.search_hotels_result, name='results'),
     url(r'^admin/', admin.site.urls),
 ]
