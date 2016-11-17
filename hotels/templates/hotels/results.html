@@ -8,6 +8,7 @@
     {% else %}
         <p>Sem datas definidas</p>
     {% endif %}
+    <p>Encontrado {{ hotels.count }} resultados para sua pesquisa por: {{ location }}.</p>
     {% for hotel in hotels %}
         <br>
         <p>{{ hotel.name }} - {{ hotel.city }}</p>

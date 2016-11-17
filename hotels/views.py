@@ -64,7 +64,8 @@ def search_hotels_result(request, template_name='hotels/results.html'):
         context = {
             'hotels': hotels,
             'checkin': checkin,
-            'checkout': checkout
+            'checkout': checkout,
+            'location': location
         }
     else:
         raise Http404
