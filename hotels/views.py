@@ -19,7 +19,7 @@ class IndexView(TemplateView):
 
 
 def list_hotels_json(request):
-
+    """Return a list of all hotels in the base to use in the auto-complete widget."""
     response = []
     q = request.GET.get('term', '')
 
@@ -43,6 +43,7 @@ def list_hotels_json(request):
 
 
 def search_hotels_result(request, template_name='hotels/results.html'):
+    """Treat the POST request from search form in index and return all hotels and dates related to user request."""
     if request.POST:
         location = request.POST.get('location', None)
         checkin = request.POST.get('checkin', None)
